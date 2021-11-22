@@ -1,0 +1,60 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+section {
+  width: 90%;
+  height: auto;
+  margin: auto;
+}
+button {
+  padding: 8px 10px;
+  margin: 10px;
+  border: none;
+  outline: none;
+  background: red;
+  color: white;
+  font-weight: bold;
+  display: none;
+}
+
+.container {
+  width: 700px;
+  margin-top: 30px;
+}
+
+.controls-item {
+  display: inline-block;
+}
+ul {
+  height: 50px;
+  padding: 0 5px;
+  width: auto;
+  float: right;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+ul li {
+  list-style: none;
+  padding: 5px 10px;
+  font-weight: bold;
+}
+select {
+  width: 126px;
+  padding: 6px;
+  margin: 5px 0px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  outline: none;
+}
+a {
+  text-decoration: none;
+}
+.page-link {
+  border: 1px solid rgb(78, 78, 78);
+}
+.container {
+  height: 300px;
+  overflow-y: auto;
+}

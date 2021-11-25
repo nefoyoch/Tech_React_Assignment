@@ -4,7 +4,7 @@ import "../index.css";
 const DropDown = (props) => {
   return (
     <div className="btn-group dropdown">
-      <select name="" id="" className="page-link" onChange={props.dropDown}>
+      <select className="page-link" onChange={props.dropDown}>
         <option selected value="10">
           10
         </option>

@@ -55,7 +55,6 @@ export default class Pagination extends Component {
     let start = (currentPage - 1) * limit;
     let end = parseInt(start) + parseInt(limit);
     filteredArray = filteredArray.slice(start, end);
-
     return (
       <>
         <Table filterData={filteredArray} />

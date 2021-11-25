@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../index.css";
 import Data from "../assets/library/Data";
-import BuildTable from "../layout/BuildTable";
+import Table from "../layout/Table";
 import DropDown from "./DropDown";
 import Buttons from "./Buttons";
 export default class Pagination extends Component {
@@ -50,31 +50,22 @@ export default class Pagination extends Component {
 
   render() {
     let { limit, data, currentPage } = this.state;
+
     let filteredArray = data;
-    // let noOfPage = Math.ceil(filteredArray.length / limit);
     let start = (currentPage - 1) * limit;
     let end = parseInt(start) + parseInt(limit);
     filteredArray = filteredArray.slice(start, end);
 
     return (
       <>
-        <BuildTable filterData={filteredArray} />
+        <Table filterData={filteredArray} />
         <DropDown dropDown={this.handleChange} />
-
-        <section
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Buttons
-            firstBtn={this.firstPageFunc}
-            lastBtn={this.lastPageFunc}
-            nextBtn={this.nextPageFunc}
-            prevBtn={this.prevPageFunc}
-            pageViewBtn={this.state.currentPage}
-          />
+        <section>
+          <Buttons text="last" btnState={this.lastPageFunc} />
+          <Buttons text="next" btnState={this.nextPageFunc} />
+          <Buttons text={this.state.currentPage} />
+          <Buttons text="prev" btnState={this.prevPageFunc} />
+          <Buttons text="first" btnState={this.firstPageFunc} />
         </section>
       </>
     );

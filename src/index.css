@@ -32,18 +32,18 @@ ul {
   width: auto;
   float: right;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 ul li {
   list-style: none;
-  padding: 5px 10px;
   font-weight: bold;
 }
 select {
+  display: inline-block;
   width: 126px;
   padding: 6px;
-  margin: 5px 0px;
+  margin: 15px 140px;
   border: 1px solid #ccc;
   cursor: pointer;
   outline: none;

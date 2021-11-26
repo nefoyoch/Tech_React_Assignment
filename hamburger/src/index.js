@@ -6,6 +6,7 @@ import './index.css';
 ReactDOM.render(
   <>
     <App />
+    {/* <Navbar/> */}
   </>,
   document.getElementById('root')
 );

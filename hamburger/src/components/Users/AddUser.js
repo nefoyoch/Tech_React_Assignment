@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState} from 'react'
+import Button from '../UI/Button';
 import Card from '../UI/Card'
 
 export const AddUser = (props) => {
@@ -6,6 +7,28 @@ export const AddUser = (props) => {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredEmpId, setEnteredEmpId] = useState("");
   const [enteredDepartment, setEnteredDepartment] = useState("");
+
+  const addUserHandler = (event) => {
+    event.preventDefault();
+    // if(enteredUsername.trim().length === 0 || enteredEmpId.trim().length === 0 || enteredDepartment.trim().length === 0){
+    //     setError({
+    //         title: "Invalid Input",
+    //         message: "Please enter a valid name, age and department (non-empty values)."
+    //     });
+    //     return;
+    // }
+    // if(+enteredEmpId < 1){ // + --> ensure that it is a number
+    //     setError({
+    //         title: "Invalid Input",
+    //         message: "Please enter a valid EmpId (> 0)."
+        // });
+    // }
+    // console.log(enteredUsername, enteredAge, enteredDepartment);
+    props.onAddUser(enteredUsername, enteredEmpId, enteredDepartment);
+    setEnteredUsername("");
+    setEnteredEmpId("");
+    setEnteredDepartment("");
+  };
 
   const usernameChangeHandler = (event) => {
     setEnteredUsername(event.target.value);
@@ -19,8 +42,19 @@ export const AddUser = (props) => {
     setEnteredDepartment(event.target.value);
   };
 
-    return (
-        <>
+  // const [usersList, setUsersList] = useState([]);
+
+  // const addUserHandlerData = (uname, uAge, udep) => {
+  //   setUsersList((prevUserList) => {
+  //     return [...prevUserList, {name: uname, age: uAge, dep: udep, id: Math.random().toString()}];
+  //   })
+  // }
+
+  
+  
+  
+  return (
+      <>
          <Card>
          <form onSubmit={addUserHandler}>
         <label htmlFor="empId">Emp. Id</label>
@@ -52,6 +86,8 @@ export const AddUser = (props) => {
       </form>
 
          </Card>   
+         {/* <App onChangeHandler={addUserHandlerData}/> */}
+         {/* <UserList users={usersList}/>   */}
         </>
     )
 }

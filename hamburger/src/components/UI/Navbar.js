@@ -1,7 +1,7 @@
 import React from 'react';
 // import './index.css';
 
-export const Layout = () => {
+export const Navbar = () => {
     return (
         <div>
 {/* <!--Navbar--> */}

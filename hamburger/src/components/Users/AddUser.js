@@ -2,6 +2,23 @@ import React from 'react'
 import Card from '../UI/Card'
 
 export const AddUser = (props) => {
+
+  const [enteredUsername, setEnteredUsername] = useState("");
+  const [enteredEmpId, setEnteredEmpId] = useState("");
+  const [enteredDepartment, setEnteredDepartment] = useState("");
+
+  const usernameChangeHandler = (event) => {
+    setEnteredUsername(event.target.value);
+  };
+
+  const empIdChangeHandler = (event) => {
+    setEnteredEmpId(event.target.value);
+  };
+
+  const departmentChangeHandler = (event) => {
+    setEnteredDepartment(event.target.value);
+  };
+
     return (
         <>
          <Card>

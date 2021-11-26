@@ -15,7 +15,7 @@ function Table(props) {
           <tbody id="table-body">
             {props.filterData.map((data) => {
               return (
-                <tr key="dataObj">
+                <tr key={data.rank}>
                   <td>{data.rank}</td>
                   <td>{data.first_name}</td>
                   <td>{data.last_name}</td>

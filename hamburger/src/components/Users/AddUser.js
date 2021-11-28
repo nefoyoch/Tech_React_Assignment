@@ -1,28 +1,32 @@
 import React, {useState} from 'react'
 import Button from '../UI/Button';
-import Card from '../UI/Card'
+import Card from '../UI/Card';
+import classes from "./AddUser.module.css";
+import ErrorModal from '../UI/ErrorModal';
 
 export const AddUser = (props) => {
 
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredEmpId, setEnteredEmpId] = useState("");
   const [enteredDepartment, setEnteredDepartment] = useState("");
+  const [error, setError] = useState();
 
   const addUserHandler = (event) => {
     event.preventDefault();
-    // if(enteredUsername.trim().length === 0 || enteredEmpId.trim().length === 0 || enteredDepartment.trim().length === 0){
-    //     setError({
-    //         title: "Invalid Input",
-    //         message: "Please enter a valid name, age and department (non-empty values)."
-    //     });
-    //     return;
-    // }
-    // if(+enteredEmpId < 1){ // + --> ensure that it is a number
-    //     setError({
-    //         title: "Invalid Input",
-    //         message: "Please enter a valid EmpId (> 0)."
-        // });
-    // }
+    if(enteredUsername.trim().length === 0 || enteredEmpId.trim().length === 0 || enteredDepartment.trim().length === 0){
+        setError({
+            title: "Invalid Input",
+            message: "Please enter a valid name, age and department (non-empty values)."
+        });
+        return;
+    }
+    if(+enteredEmpId < 1){ // + --> ensure that it is a number
+        setError({
+            title: "Invalid Input",
+            message: "Please enter a valid EmpId (> 0)."
+        });
+        return;
+    }
     // console.log(enteredUsername, enteredAge, enteredDepartment);
     props.onAddUser(enteredUsername, enteredEmpId, enteredDepartment);
     setEnteredUsername("");
@@ -50,12 +54,16 @@ export const AddUser = (props) => {
   //   })
   // }
 
-  
+  const errorHandler = () => {
+    setError(null);
+}
+
   
   
   return (
       <>
-         <Card>
+      {error && <ErrorModal title = {error.title} message = {error.message} onConfirm = {errorHandler}/>}
+         <Card className={classes.input}> 
          <form onSubmit={addUserHandler}>
         <label htmlFor="empId">Emp. Id</label>
         <input

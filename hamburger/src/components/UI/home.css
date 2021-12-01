@@ -1,3 +1,46 @@
 /* table{
     display: none;
 } */
+.imgcontainer{
+    margin-top: 30px;
+}
+img{
+    width: 600px;
+    height: 400px;
+}
+.lifecycle{
+    /* text-align: center; */
+    margin: 0 50px;
+}
+li{
+    color: red;
+}
+.render{
+    color: red;
+}
+.wheat{
+    background-color: wheat;
+}
+.unmounting{
+    background-color: lightblue;
+}
+.first{
+    background-color: lightblue;
+        text-align: center;
+        margin: 0 auto;
+
+    
+}
+.heading, h2{
+    text-align: center;
+    margin: 20px;
+}
+.practical{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    border: 1px solid black;
+    margin-bottom: 30px;
+}

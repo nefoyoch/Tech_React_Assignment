@@ -30,6 +30,10 @@ export const Navbar = () => {
       <li class="nav-item">
         <Link className="nav-link" to="/adduser">Add User</Link>
       </li>
+      <li class="nav-item">
+        <Link className="nav-link" to="/api">API Data</Link>
+      </li>
+
       {/* <li class="nav-item">
         <Link class="nav-link" to="/apicall">API Call</Link>
       </li> */}

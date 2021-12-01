@@ -3,8 +3,10 @@ import Button from '../UI/Button';
 import Card from '../UI/Card';
 import classes from "./AddUser.module.css";
 import ErrorModal from '../UI/ErrorModal';
+import UserList from './UserList';
 
 export const AddUser = (props) => {
+  // console.log(props.user)
 
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredEmpId, setEnteredEmpId] = useState("");
@@ -95,7 +97,7 @@ export const AddUser = (props) => {
 
          </Card>   
          {/* <App onChangeHandler={addUserHandlerData}/> */}
-         {/* <UserList users={usersList}/>   */}
+         <UserList users={props.users}/>  
         </>
     )
 }

@@ -2,10 +2,17 @@ import { useState } from "react/cjs/react.development";
 import { Navbar } from "./components/UI/Navbar";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import { AddUser } from "./components/Users/AddUser";
-import UserList from "./components/Users/UserList";
+// import UserList from "./components/Users/UserList";
+
 import { Home } from "./components/UI/Home";
+
 import Pagination from "./components/Users/Pagination";
 // import './index.css';
+
+
+import CallAPI from "./components/Users/CallAPI";
+
+
 
 function App() {
 
@@ -21,15 +28,17 @@ const addUserHandler = (uname, uAge, udep) => {
     <Router>
     <div className="App">
     <Navbar/>
-      <UserList users={usersList}/>
+      {/* <UserList /> */}
     <Routes>
       <Route exact path = "/" element = {<Home/>}></Route>
-      <Route exact path = "/adduser" element = {<AddUser onAddUser={addUserHandler}/>}></Route>
-      {/* <Route exact path = "/about" element = {<About/>}></Route> */}
-      {/* <Route exact path = "/contact" element = {<Contact/>}></Route> */}
+
+      <Route exact path = "/adduser" element = {<AddUser users={usersList} onAddUser={addUserHandler}/>}></Route>
+      <Route exact path = "/api" element = {<CallAPI/>}></Route>
+<Route exact path = "/pagination" element = {<Pagination/>}></Route>
+      
       {/* <Route exact path = "/apicall" element = {<CallAPI/>}></Route> */}
-      <Route exact path = "/pagination" element = {<Pagination/>}></Route>
-      {/* <Route exact path = "/formik" element = {<Signup/>}></Route> */}
+      {/* <Route exact path = "/lifecycle" element = {<LifeCycle/>}></Route> */}
+
     </Routes>
     
     </div>

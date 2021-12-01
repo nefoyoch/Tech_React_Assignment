@@ -1,76 +1,75 @@
 import React, { Component } from "react";
 // import "../index.css";
-import Data from '../../assets/library/Data';
+import Data from "../../assets/library/Data";
 import PaginationTable from "../UI/PaginationTable";
 import DropDown from "../UI/DropDown";
 import Buttons from "../UI/Button";
 export default class Pagination extends Component {
-    state = {
+  state = {
+    currentPage: 1,
+    limit: 10,
+    data: Data(),
+  };
+
+  handleChange = (e) => {
+    this.setState({
+      limit: e.target.value,
       currentPage: 1,
-      limit: 10,
-      data: Data(),
-    };
-  
-    handleChange = (e) => {
+    });
+  };
+
+  firstPageFunc = () => {
+    if (this.state.currentPage > 1) {
       this.setState({
-        limit: e.target.value,
         currentPage: 1,
       });
-    };
-  
-    firstPageFunc = () => {
-      if (this.state.currentPage > 1) {
-        this.setState({
-          currentPage: 1,
-        });
-      }
-    };
-  
-    prevPageFunc = () => {
-      if (this.state.currentPage > 1) {
-        this.setState({
-          currentPage: this.state.currentPage - 1,
-        });
-      }
-    };
-  
-    nextPageFunc = () => {
-      if (this.state.currentPage < this.state.data.length / this.state.limit) {
-        this.setState({
-          currentPage: this.state.currentPage + 1,
-        });
-      }
-    };
-  
-    lastPageFunc = () => {
-      this.setState({
-        currentPage: this.state.data.length / this.state.limit,
-      });
-    };
-  
-    render() {
-      let { limit, data, currentPage } = this.state;
-  
-      let filteredArray = data;
-      let start = (currentPage - 1) * limit;
-      let end = parseInt(start) + parseInt(limit);
-      filteredArray = filteredArray.slice(start, end);
-  
-      return (
-        <>
-          <PaginationTable filterData={filteredArray} />
-          <DropDown dropDown={this.handleChange} />
-          <section>
-            <Buttons text="last" onClick={this.lastPageFunc} />
-            <Buttons text="next" onClick={this.nextPageFunc} />
-            <Buttons text={this.state.currentPage} />
-            <Buttons text="prev" onClick={this.prevPageFunc} />
-            <Buttons text="first" onClick={this.firstPageFunc} />
-          </section>
-        </>
-      );
     }
+  };
+
+  prevPageFunc = () => {
+    if (this.state.currentPage > 1) {
+      this.setState({
+        currentPage: this.state.currentPage - 1,
+      });
+    }
+  };
+
+  nextPageFunc = () => {
+    if (this.state.currentPage < this.state.data.length / this.state.limit) {
+      this.setState({
+        currentPage: this.state.currentPage + 1,
+      });
+    }
+  };
+
+  lastPageFunc = () => {
+    this.setState({
+      currentPage: this.state.data.length / this.state.limit,
+    });
+  };
+
+  render() {
+    let { limit, data, currentPage } = this.state;
+
+    let filteredArray = data;
+    let start = (currentPage - 1) * limit;
+    let end = parseInt(start) + parseInt(limit);
+    filteredArray = filteredArray.slice(start, end);
+
+    return (
+      <>
+        <PaginationTable srNo="Sr. No." first="First Name" last="Last Name" filterData={filteredArray} />
+        <DropDown dropDown={this.handleChange} />
+        <section>
+          <Buttons text="last" onClick={this.lastPageFunc} />
+          <Buttons text="next" onClick={this.nextPageFunc} />
+          <Buttons text={this.state.currentPage} />
+          <Buttons text="prev" onClick={this.prevPageFunc} />
+          <Buttons text="first" onClick={this.firstPageFunc} />
+        </section>
+      </>
+    );
   }
-  
+}
 
 // export default Pagination;

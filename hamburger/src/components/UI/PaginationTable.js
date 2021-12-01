@@ -1,10 +1,10 @@
 import React from "react";
 
 function PaginationTable(props) {
-    console.log(props);
+  console.log(props);
   return (
     <>
-      <div className="container">
+      <div className="container mt-4">
         <table className="table table-dark" id="our-table">
           <thead>
             <tr>

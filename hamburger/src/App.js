@@ -5,7 +5,13 @@ import { AddUser } from "./components/Users/AddUser";
 // import UserList from "./components/Users/UserList";
 
 import { Home } from "./components/UI/Home";
+
+import Pagination from "./components/Users/Pagination";
+// import './index.css';
+
+
 import CallAPI from "./components/Users/CallAPI";
+
 
 
 function App() {
@@ -25,12 +31,13 @@ const addUserHandler = (uname, uAge, udep) => {
       {/* <UserList /> */}
     <Routes>
       <Route exact path = "/" element = {<Home/>}></Route>
+
       <Route exact path = "/adduser" element = {<AddUser users={usersList} onAddUser={addUserHandler}/>}></Route>
       <Route exact path = "/api" element = {<CallAPI/>}></Route>
-      {/* <Route exact path = "/contact" element = {<Contact/>}></Route> */}
+<Route exact path = "/pagination" element = {<Pagination/>}></Route>
+      
       {/* <Route exact path = "/apicall" element = {<CallAPI/>}></Route> */}
       {/* <Route exact path = "/lifecycle" element = {<LifeCycle/>}></Route> */}
-      {/* <Route exact path = "/formik" element = {<Signup/>}></Route> */}
 
     </Routes>
     

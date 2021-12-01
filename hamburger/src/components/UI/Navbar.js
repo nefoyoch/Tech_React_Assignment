@@ -24,9 +24,9 @@ export const Navbar = () => {
       <li class="nav-item active">
         <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
       </li>
-      {/* <li class="nav-item">
+      <li class="nav-item">
         <Link class="nav-link" to="/pagination">Pagination</Link>
-      </li> */}
+      </li>
       <li class="nav-item">
         <Link className="nav-link" to="/adduser">Add User</Link>
       </li>

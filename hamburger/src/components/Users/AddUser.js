@@ -6,6 +6,7 @@ import ErrorModal from '../UI/ErrorModal';
 import UserList from './UserList';
 
 export const AddUser = (props) => {
+  // console.log(props.user)
 
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredEmpId, setEnteredEmpId] = useState("");

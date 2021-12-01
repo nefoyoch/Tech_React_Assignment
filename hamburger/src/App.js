@@ -3,6 +3,7 @@ import { Navbar } from "./components/UI/Navbar";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import { AddUser } from "./components/Users/AddUser";
 // import UserList from "./components/Users/UserList";
+
 import { Home } from "./components/UI/Home";
 import CallAPI from "./components/Users/CallAPI";
 
@@ -30,6 +31,7 @@ const addUserHandler = (uname, uAge, udep) => {
       {/* <Route exact path = "/apicall" element = {<CallAPI/>}></Route> */}
       {/* <Route exact path = "/lifecycle" element = {<LifeCycle/>}></Route> */}
       {/* <Route exact path = "/formik" element = {<Signup/>}></Route> */}
+
     </Routes>
     
     </div>
